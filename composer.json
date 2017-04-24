@@ -1,5 +1,5 @@
 {
-    "name": "apidata/feed-faker",
+    "name": "sparkapi/feed-faker",
     "description": "A fake datasource using RESO standard fields",
     "autoload": {
         "psr-4": { "FeedFaker\\": "src/" },
