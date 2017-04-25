@@ -25,5 +25,6 @@ class NullPhotoProviderTest extends PHPUnit_Framework_TestCase
         /** @var \FeedFaker\Models\MediaImage $image */
         $image = $this->faker->getPhoto('irrelevant');
         $this->assertInstanceOf(\FeedFaker\Models\MediaImage::class, $image);
+        $this->assertNotFalse(filter_var($image->getUrl(), FILTER_VALIDATE_URL));
     }
 }
