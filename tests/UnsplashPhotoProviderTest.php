@@ -3,7 +3,7 @@
 
 use DI\ContainerBuilder;
 use Faker\Factory;
-use FeedFaker\Helper\UnsplashPhotoProvider;
+use FeedFaker\Providers\UnsplashPhotoProvider;
 
 class UnsplashPhotoProviderTest extends PHPUnit_Framework_TestCase
 {

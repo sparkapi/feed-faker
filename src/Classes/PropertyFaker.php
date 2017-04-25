@@ -177,6 +177,8 @@ class PropertyFaker extends BaseFaker
         $property->setCity($this->faker->city);
         $property->setStateOrProvince($this->faker->getFeatureList('StateOrProvince', 1));
         $logic_driven_selects[] = 'StateOrProvince';
+        $property->setCountry($this->faker->getFeatureList('Country', 1));
+        $logic_driven_selects[] = 'Country';
         $property->setPostalCode($this->faker->postcode);
         $property->setPostalCodePlus4($this->faker->numberBetween(1000, 9999));
         $property->setUnparsedAddress($property->getStreetNumber() . ' ' . $property->getStreetName() . ' ' . $property->getStreetSuffix() . ' ' . $property->getCity() . ' ' . $property->getStateOrProvince() . $property->getPostalCode());
