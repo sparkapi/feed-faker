@@ -20,10 +20,11 @@ class NullPhotoProvider extends PhotoProvider
     function getPhotos($count)
     {
         $return = [];
-        $i = 0;
+        $i = 1;
 
         while ($i <= $count) {
             $return[] = $this->getPhoto('');
+            $i++;
         }
 
         return $return;
