@@ -1,6 +1,24 @@
 ## RESO Feed Faker
+[![Latest Version](https://img.shields.io/github/release/sparkapi/feed-faker.svg?style=flat-square)](https://github.com/sparkapi/feed-faker/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/sparkapi/feed-faker/master.svg?style=flat-square)](https://travis-ci.org/sparkapi/feed-faker)
+[![Coverage Status](https://coveralls.io/repos/sparkapi/feed-faker/badge.svg?branch=master)](https://coveralls.io/r/sparkapi/feed-faker?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sparkapi/feed-faker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sparkapi/feed-faker/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/sparkapi/feed-faker.svg?style=flat-square)](https://packagist.org/packages/sparkapi/feed-faker)
 
 FeedFaker allows you to generate a ton of fake RESO-compliant feed data objects quickly and easily, in a way that will keep the IDs at least semi-referentially linked for imports into databases.
+
+## Install via Composer
+`$ composer require sparkapi/feed-faker`
+
+(or)
+```json
+{
+    "require": {
+        "sparkapi/feed-faker": "^0.8"
+    }
+}
+```
 
 ## Example Usage
 
@@ -101,3 +119,22 @@ You may also skip monolog altogether and provide any instance of a PSR-3 compati
 $feedfake = new FeedFaker\FakeFeed([], $my_psr_3_logger);
 $data = $feedfake->go()
 ```
+
+## Interoperability
+Feed Faker is [PSR compliant](http://www.php-fig.org/) and [Container Interoperability](https://github.com/container-interop/container-interop) compliant. Any oversights, please let us know.
+
+## Testing
+We try for at least 80% test coverage.
+``` bash
+$ phpunit
+```
+
+Note tht the `UnsplashPhotoProviderTest`s are skipped. These require a valid credential. You may extend and run these tests with your own credentials. A better (environment-based) system is on the way.
+
+## Contributing
+Contributions are welcome and will be fully credited. Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+Open an issue to join in!
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
