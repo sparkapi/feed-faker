@@ -2,8 +2,6 @@
 [![Latest Version](https://img.shields.io/github/release/sparkapi/feed-faker.svg?style=flat-square)](https://github.com/sparkapi/feed-faker/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/sparkapi/feed-faker/master.svg?style=flat-square)](https://travis-ci.org/sparkapi/feed-faker)
-[![Coverage Status](https://coveralls.io/repos/sparkapi/feed-faker/badge.svg?branch=master)](https://coveralls.io/r/sparkapi/feed-faker?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sparkapi/feed-faker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sparkapi/feed-faker/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/sparkapi/feed-faker.svg?style=flat-square)](https://packagist.org/packages/sparkapi/feed-faker)
 
 FeedFaker allows you to generate a ton of fake RESO-compliant feed data objects quickly and easily, in a way that will keep the IDs at least semi-referentially linked for imports into databases.
