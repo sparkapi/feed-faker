@@ -1,6 +1,7 @@
 {
     "name": "sparkapi/feed-faker",
     "description": "A fake datasource using RESO standard fields",
+    "license": "MIT",
     "autoload": {
         "psr-4": { "FeedFaker\\": "src/" },
         "classmap": [
