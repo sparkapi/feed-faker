@@ -43,7 +43,15 @@ class BaseModel
      */
     public function toArray()
     {
-        return (array) $this;
+        $return = (array) $this;
+
+        foreach ($return as $key => $value) {
+            if (is_array($value)) {
+                $return[$key] = implode(',', $value);
+            }
+        }
+
+        return $return;
     }
 
     public function fromArray(array $input)
