@@ -157,4 +157,46 @@ class PropertyFakerTest extends PHPUnit_Framework_TestCase
             }
         }
      }
+
+    public function testItLimitsFields()
+    {
+        $property = new PropertyFaker($this->container);
+        $property_object = $property->generate($this->member1, $this->member2);
+
+        $limited = [
+            "ListingService",
+            "ListingAgreement",
+            "LockboxLocation",
+            "Exclusions",
+            "Concessions",
+            "Country",
+            "PropertySubType",
+            "AssociationFeeFrequency",
+            "LotSizeSource",
+            "LotSizeUnits",
+            "OccupantType",
+            "LeaseTerm",
+            "Furnished",
+            "BusinessType",
+            "OwnershipType",
+            "LeaseAmountFrequency",
+            "HoursDaysofOperation",
+            "Electric",
+            "Gas",
+            "Fencing",
+            "OtherParking",
+            "YearBuiltSource",
+            "ArchitecturalStyle",
+            "DirectionFaces",
+            "Appliances",
+        ];
+
+        foreach ($limited as $limit) {
+            $method = 'get'.$limit;
+            $value = $property_object->$method();
+
+            $this->assertFalse(is_array($value)); // should not be an array
+            $this->assertSame(1, count(explode(',', $value)));
+        }
+    }
 }

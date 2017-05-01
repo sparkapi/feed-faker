@@ -19,9 +19,15 @@ class FeatureProvider extends Base
     public function getFeatureList($field_name, $count = 0)
     {
         $count_provided = true;
+        $single_values = $this->getSingleValues();
         if (!$count) {
-            $count_provided = false;
-            $count = $this->faker->numberBetween(1, 4);
+            if (in_array($field_name, $single_values)) {
+                $count_provided = true;
+                $count = 1;
+            } else {
+                $count_provided = false;
+                $count = $this->faker->numberBetween(1, 4);
+            }
         }
 
         $return = [];
@@ -2253,7 +2259,11 @@ class FeatureProvider extends Base
                 'Delete',
                 'Incomplete',
                 'Coming Soon',
-            ]
+            ],
+            'Exclusions' => [
+                'Appliances',
+                'Personal Property',
+            ],
         ];
     }
 
@@ -2275,5 +2285,37 @@ class FeatureProvider extends Base
         $data = $this->getData();
 
         return array_keys($data);
+    }
+
+    public function getSingleValues()
+    {
+        // these should be limited to one result
+        return [
+            "ListingService",
+            "ListingAgreement",
+            "LockboxLocation",
+            "Exclusions",
+            "Concessions",
+            "Country",
+            "PropertySubType",
+            "AssociationFeeFrequency",
+            "LotSizeSource",
+            "LotSizeUnits",
+            "OccupantType",
+            "LeaseTerm",
+            "Furnished",
+            "BusinessType",
+            "OwnershipType",
+            "LeaseAmountFrequency",
+            "HoursDaysofOperation",
+            "Electric",
+            "Gas",
+            "Fencing",
+            "OtherParking",
+            "YearBuiltSource",
+            "ArchitecturalStyle",
+            "DirectionFaces",
+            "Appliances",
+        ];
     }
 }
