@@ -21,15 +21,15 @@ FeedFaker allows you to generate a ton of fake RESO-compliant feed data objects 
 ## Example Usage
 
 First define your settings for keys and the number and type of objects to create.
-All settings have defaults, except for unsplash, which is the default image provider.
-If you are using unsplash, you will have to pass in a few settings.
+
+If you are using the unsplash photo provider you will have to pass in a few additional settings.
 If you want to use a different image provider, pass in the class to that provider.
 
 All other settings have defaults, so feel free to modify what you want and leave blank the rest.
 
 ```php
 $settings = [
-    // Required for unsplash
+    // Only required for unsplash
     'unsplash_app_id' => 'your_unsplash_app_id', // unsplash specific
     'interior_collection' => collection_id, // unsplash specific
     'exterior_collection' => collection_id, // unsplash specific
@@ -51,7 +51,7 @@ $settings = [
 ];
 ```
 
-You may provide a valid full path to a php settings file that returns an array, if you prefer. An example is un `settings.php.dist`.
+You may provide a valid full path to a php settings file that returns an array, if you prefer. An example is in `settings.php.dist`.
 
 Now that you're all setup, instantiate it and fire away:
 
@@ -67,8 +67,8 @@ $settings = [
     'history_count' => 500
 ];
 
-$feedfake = new FeedFaker\FakeFeed($settings);
-$data = $feedfake->go();
+$feedfake = new FeedFaker\FakeFeed();
+$data = $feedfake->go($settings);
 
 $properties = $data['property'];
 $offices = $data['office'];
