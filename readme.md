@@ -19,12 +19,13 @@ $ curl http://localhost:8080/property
 
 ### List of Faker Endpoints in the Docker Image
 
-* Properties: http://localhost:8080/property
-* Members: http://localhost:8080/member
-* Offices: http://localhost:8080/office
-* Open House: http://localhost:8080/openhouse
-* History: http://localhost:8080/history
-* Media: http://localhost:8080/media/jpeg
+* Properties: http://localhost:8080/property/{optional_count}
+* Members: http://localhost:8080/member/{optional_count}
+* Offices: http://localhost:8080/office/{optional_count}
+* Open House: http://localhost:8080/openhouse/{optional_count}
+* History: http://localhost:8080/history/{optional_count}
+* Media: http://localhost:8080/media/jpeg/{optional_count}
+
 
 ## Install via Composer
 `$ composer require sparkapi/feed-faker`
