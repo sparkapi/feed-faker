@@ -6,6 +6,26 @@
 
 FeedFaker allows you to generate a ton of fake RESO-compliant feed data objects quickly and easily, in a way that will keep the IDs at least semi-referentially linked for imports into databases.
 
+## Docker Quick Start
+
+```
+$ docker run -d -p 8080:80 sparkapi/faker-wrapper
+
+$ curl http://localhost:8080/property
+[{"ListingKey":"20170428170051261516000000","ListingId":"201704281...
+
+# Hooray!
+```
+
+### List of Faker Endpoints in the Docker Image
+
+* Properties: http://localhost:8080/property
+* Members: http://localhost:8080/member
+* Offices: http://localhost:8080/office
+* Open House: http://localhost:8080/openhouse
+* History: http://localhost:8080/history
+* Media: http://localhost:8080/media/jpeg
+
 ## Install via Composer
 `$ composer require sparkapi/feed-faker`
 
