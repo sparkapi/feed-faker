@@ -138,4 +138,10 @@ class FeatureProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(count($fake_value2) == 1);
         $this->assertTrue(count($fake_value3) == 5);
     }
+
+    public function testGetAll()
+    {
+        $values = $this->faker->getAllEnums('PropertySubType');
+        $this->assertSame(18, count($values));
+    }
 }
