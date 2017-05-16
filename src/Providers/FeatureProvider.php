@@ -53,6 +53,11 @@ class FeatureProvider extends Base
         return array_unique($return);
     }
 
+    public function getAllEnums($field_name)
+    {
+        return $this->getDataValues($field_name);
+    }
+
     public function getData()
     {
         return [
