@@ -2,6 +2,7 @@
 
 namespace FeedFaker\Providers;
 
+use DI\Container;
 use Faker\Generator;
 use Faker\Provider\Base;
 use FeedFaker\Models\MediaImage;
@@ -12,8 +13,18 @@ use FeedFaker\Models\MediaImage;
  */
 abstract class PhotoProvider extends Base
 {
-    public function __construct(Generator $generator)
+    /** @var  Container $container */
+    public $container;
+    /** @var MediaImage[] $interior */
+    public $interior = [];
+    /** @var MediaImage[] $exterior */
+    public $exterior = [];
+    /** @var MediaImage[] $portraits */
+    public $portraits = [];
+
+    public function __construct(Generator $generator, Container $container)
     {
+        $this->container = $container;
         parent::__construct($generator);
     }
 
