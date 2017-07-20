@@ -14,7 +14,7 @@ class NullPhotoProvider extends PhotoProvider
     public function __construct(Generator $generator, Container $container)
     {
         $this->faker = Factory::create();
-        parent::__construct($generator);
+        parent::__construct($generator, $container);
     }
 
     function getPhotos($count)
