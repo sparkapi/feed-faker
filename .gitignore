@@ -1,7 +1,3 @@
 # User-specific stuff:
-Config/Settings.php
 .idea/
 /vendor/
-/images/exterior/*
-/images/interior/*
-/images/portraits/*

@@ -9,8 +9,8 @@ return [
     'history_count' => 1000,
     'media_count' => 5000,
     'unsplash_app_id' => 'your_unsplash_app_id', // unsplash specific
-    'interior_collection' => collection_id, // unsplash specific
-    'exterior_collection' => collection_id, // unsplash specific
-    'portrait_collection' => collection_id, // unsplash specific
+    'interior_collection' => collection_id, // unsplash id or filesystem path to interior image directory if using local provider
+    'exterior_collection' => collection_id, // unsplash id or filesystem path to interior image directory if using local provider
+    'portrait_collection' => collection_id, // unsplash id or filesystem path to interior image directory if using local provider
     'photo_provider' => \FeedFaker\Helper\UnsplashPhotoProvider::class,
 ];

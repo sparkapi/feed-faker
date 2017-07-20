@@ -22,8 +22,6 @@ class UnsplashPhotoProvider extends PhotoProvider
 
     public function __construct(Generator $generator, Container $container)
     {
-        $this->container = $container;
-
         // make sure we have this value
         if (!$container->has('unsplash_app_id')) {
             throw new \Exception("Attempting to initialize unsplash provider without unsplash_app_id set");
@@ -37,7 +35,7 @@ class UnsplashPhotoProvider extends PhotoProvider
         // populate the local collections
         $this->populateCollections();
 
-        parent::__construct($generator);
+        parent::__construct($generator, $container);
     }
 
     public function getPhotos($count)
@@ -112,7 +110,7 @@ class UnsplashPhotoProvider extends PhotoProvider
                     $image = new MediaImage();
                     $image->setUrl($photo->urls['full']);
                     $image->setHeight($photo->height);
-                    $image->setHeight($photo->width);
+                    $image->setWidth($photo->width);
                     $image->setMimeType('image/jpeg');
                     $return[] = $image;
                 }

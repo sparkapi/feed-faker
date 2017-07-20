@@ -50,11 +50,11 @@ All other settings have defaults, so feel free to modify what you want and leave
 
 ```php
 $settings = [
-    // Only required for unsplash
+    // required for photo providers
     'unsplash_app_id' => 'your_unsplash_app_id', // unsplash specific
-    'interior_collection' => collection_id, // unsplash specific
-    'exterior_collection' => collection_id, // unsplash specific
-    'portrait_collection' => collection_id, // unsplash specific
+    'interior_collection' => collection_id, // unsplash collection or filesystem path if using local photo provider
+    'exterior_collection' => collection_id, // unsplash collection or filesystem path if using local photo provider
+    'portrait_collection' => collection_id, // unsplash collection or filesystem path if using local photo provider
         
     // Optional photo provider, if not using unsplash (you can ignore the above, too).
     'photo_provider' => \FeedFaker\Helper\UnsplashPhotoProvider::class,
