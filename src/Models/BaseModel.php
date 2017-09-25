@@ -2,6 +2,8 @@
 
 namespace FeedFaker\Models;
 
+use FeedFaker\Helper\Fields;
+
 
 /**
  * Class BaseModel
@@ -62,5 +64,17 @@ class BaseModel
                 $this->$method($value);
             }
         }
+    }
+
+    public function getMetadata()
+    {
+        $return = [];
+        $fields = array_keys(get_object_vars($this));
+
+        foreach ($fields as $field) {
+            $return[$field] = Fields::getField($field);
+        }
+
+        return $return;
     }
 }
