@@ -2,6 +2,7 @@
 
 namespace FeedFaker\Metadata;
 
+use FeedFaker\Models\BaseModel;
 use FeedFaker\Models\Contact;
 use FeedFaker\Models\History;
 use FeedFaker\Models\Media;
@@ -13,6 +14,11 @@ use FeedFaker\Models\SavedSearch;
 
 class Metadata
 {
+    /**
+     * @param bool $resource_name
+     * @return array
+     * @throws \Exception
+     */
     public static function getResources($resource_name = false)
     {
         $return = [];
@@ -34,6 +40,7 @@ class Metadata
         } else if ($resource_name === false) {
             foreach ($resources as $name => $resource) {
                 $class = new $resource();
+                /** @var BaseModel $class */
                 $return[$name] = $class->getMetadata();
             }
         } else {

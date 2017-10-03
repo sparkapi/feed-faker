@@ -5,6 +5,7 @@ namespace FeedFaker\Providers;
 use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider\Base;
+use FeedFaker\Helper\Enumerations;
 
 class FeatureProvider extends Base
 {
@@ -2274,7 +2275,15 @@ class FeatureProvider extends Base
 
     public function getDataValues($field_name)
     {
-        $data = $this->getData();
+        // merge the reso specified enums with any custom ones set here
+        $reso_enums = json_decode(Enumerations::$enums, true);
+        $local_enums = $this->getData();
+
+        $data = array_merge_recursive($reso_enums, $local_enums);
+
+        foreach ($data as $field => $values) {
+            $data[$field] = array_unique($values);
+        }
 
         $return = [];
 
