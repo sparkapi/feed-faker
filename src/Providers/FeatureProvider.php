@@ -5,6 +5,7 @@ namespace FeedFaker\Providers;
 use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider\Base;
+use FeedFaker\Helper\Enumerations;
 
 class FeatureProvider extends Base
 {
@@ -696,7 +697,7 @@ class FeatureProvider extends Base
                 'One',
                 'Two',
                 'Three Or More',
-                'Multi\/Split'
+                'Multi/Split'
             ],
             'BusinessType' => [
                 'Accounting',
@@ -711,47 +712,47 @@ class FeatureProvider extends Base
                 'Auto Body',
                 'Auto Glass',
                 'Auto Parts',
-                'Auto Rent\/Lease',
+                'Auto Rent/Lease',
                 'Auto Repair-Specialty',
                 'Auto Dealer',
-                'Auto Stereo\/Alarm',
+                'Auto Stereo/Alarm',
                 'Auto Tires',
                 'Auto Wrecking',
                 'Auto Service',
                 'Bakery',
-                'Bar\/Tavern\/Lounge',
-                'Barber\/Beauty',
+                'Bar/Tavern/Lounge',
+                'Barber/Beauty',
                 'Bed & Breakfast',
-                'Books\/Cards\/Stationary',
+                'Books/Cards/Stationary',
                 'Butcher',
                 'Cabinets',
-                'Candy\/Cookie',
+                'Candy/Cookie',
                 'Car Wash',
-                'Carpet\/Tile',
+                'Carpet/Tile',
                 'Child Care',
                 'Church',
                 'Clothing',
                 'Commercial',
                 'Computer',
-                'Construction\/Contractor',
+                'Construction/Contractor',
                 'Convalescent',
                 'Convenience Store',
                 'Dance Studio',
                 'Decorator',
                 'Dental',
-                'Deli\/Catering',
+                'Deli/Catering',
                 'Distribution',
                 'Doughnut',
                 'Drugstore',
                 'Dry Cleaner',
-                'Education\/School',
+                'Education/School',
                 'Electronics',
                 'Employment',
                 'Farm',
                 'Fast Food',
                 'Financial',
                 'Fitness',
-                'Florist\/Nursery',
+                'Florist/Nursery',
                 'Food & Beverage',
                 'Forest Reserve',
                 'Franchise',
@@ -765,8 +766,8 @@ class FeatureProvider extends Base
                 'Hobby',
                 'Home Cleaner',
                 'Hospitality',
-                'Hotel\/Motel',
-                'Ice Cream\/Frozen Yogurt',
+                'Hotel/Motel',
+                'Ice Cream/Frozen Yogurt',
                 'Industrial',
                 'Jewelry',
                 'Landscaping',
@@ -776,7 +777,7 @@ class FeatureProvider extends Base
                 'Manufacturing',
                 'Medical',
                 'Mixed',
-                'Mobile\/Trailer Park',
+                'Mobile/Trailer Park',
                 'Music',
                 'Nursing Home',
                 'Other',
@@ -788,14 +789,14 @@ class FeatureProvider extends Base
                 'Pizza',
                 'Printing',
                 'Professional Service',
-                'Professional\/Office',
+                'Professional/Office',
                 'Real Estate',
                 'Recreation',
                 'Rental',
                 'Residential',
                 'Restaurant',
                 'Retail',
-                'Saddlery\/Harness',
+                'Saddlery/Harness',
                 'Sporting Goods',
                 'Storage',
                 'Toys',
@@ -1122,7 +1123,7 @@ class FeatureProvider extends Base
                 'MLS Only Broker',
                 'MLS Only Salesperson',
                 'MLS Staff',
-                'Non Member\/Vendor',
+                'Non Member/Vendor',
                 'Office Manager',
                 'REALTOR Appraiser',
                 'REALTOR Salesperson',
@@ -1141,7 +1142,7 @@ class FeatureProvider extends Base
                 'MLS Only Branch',
                 'MLS Only Firm',
                 'MLS Only Office',
-                'Non Member\/Vendor',
+                'Non Member/Vendor',
                 'Realtor Branch Office',
                 'Realtor Firm',
                 'Realtor Office'
@@ -1164,12 +1165,12 @@ class FeatureProvider extends Base
                 'Maintenance Grounds',
                 'Maintenance Structure',
                 'Manager',
-                'Mortgage\/Loans',
+                'Mortgage/Loans',
                 'New Tax',
                 'Other',
                 'Parking',
                 'Pest Control',
-                'Pool\/Spa',
+                'Pool/Spa',
                 'Professional Management',
                 'Security',
                 'Snow Removal',
@@ -1178,7 +1179,7 @@ class FeatureProvider extends Base
                 'Trash',
                 'Utilities',
                 'Vacancy Allowance',
-                'Water\/Sewer',
+                'Water/Sewer',
                 'Workmans Compensation'
             ],
             'Possession' => [
@@ -1201,7 +1202,7 @@ class FeatureProvider extends Base
                 'Property Manager'
             ],
             'SpecialLicenses' => [
-                'Beer\/Wine',
+                'Beer/Wine',
                 'Class H',
                 'Entertainment',
                 'Franchise',
@@ -1239,9 +1240,9 @@ class FeatureProvider extends Base
             ],
             'HoursDaysofOperation' => [
                 'Open 24 Hours',
-                'Open 8 Hours\/Day',
-                'Open -8 Hours\/Day',
-                'Open 8+ Hours\/Day',
+                'Open 8 Hours/Day',
+                'Open -8 Hours/Day',
+                'Open 8+ Hours/Day',
                 'Open 7 Days',
                 'Open Monday-Friday',
                 'Open Sunday',
@@ -1312,7 +1313,7 @@ class FeatureProvider extends Base
                 'Aluminum Siding',
                 'Asbestos',
                 'Asphalt',
-                'Attic\/Crawl Hatchway(s) Insulated',
+                'Attic/Crawl Hatchway(s) Insulated',
                 'Batts Insulation',
                 'Block',
                 'Blown-In Insulation',
@@ -1344,7 +1345,7 @@ class FeatureProvider extends Base
                 'Plaster',
                 'Radiant Barrier',
                 'Rammed Earth',
-                'Recycled\/Bio-Based Insulation',
+                'Recycled/Bio-Based Insulation',
                 'Redwood Siding',
                 'See Remarks',
                 'Shake Siding',
@@ -1653,12 +1654,12 @@ class FeatureProvider extends Base
             ],
             'FoundationDetails' => [
                 'Block',
-                'Brick\/Mortar',
+                'Brick/Mortar',
                 'Combination',
                 'Concrete Perimeter',
                 'None',
                 'Permanent',
-                'Pillar\/Post\/Pier',
+                'Pillar/Post/Pier',
                 'Raised',
                 'See Remarks',
                 'Slab',
@@ -1673,7 +1674,7 @@ class FeatureProvider extends Base
                 'Appliances',
                 'Construction',
                 'Doors',
-                'Exposure\/Shade',
+                'Exposure/Shade',
                 'HVAC',
                 'Incentives',
                 'Insulation',
@@ -1930,7 +1931,7 @@ class FeatureProvider extends Base
                 'Fixer',
                 'New Construction',
                 'Under Construction',
-                'Updated\/Remodeled'
+                'Updated/Remodeled'
             ],
             'RentIncludes' => [
                 'All Utilities',
@@ -1969,7 +1970,7 @@ class FeatureProvider extends Base
                 'Mixed',
                 'None',
                 'Other',
-                'Rolled\/Hot Mop',
+                'Rolled/Hot Mop',
                 'Rubber',
                 'See Remarks',
                 'Shake',
@@ -1978,7 +1979,7 @@ class FeatureProvider extends Base
                 'Spanish Tile',
                 'Stone',
                 'Synthetic',
-                'Tar\/Gravel',
+                'Tar/Gravel',
                 'Tile',
                 'Wood'
             ],
@@ -2274,7 +2275,15 @@ class FeatureProvider extends Base
 
     public function getDataValues($field_name)
     {
-        $data = $this->getData();
+        // merge the reso specified enums with any custom ones set here
+        $reso_enums = json_decode(Enumerations::$enums, true);
+        $local_enums = $this->getData();
+
+        $data = array_merge_recursive($reso_enums, $local_enums);
+
+        foreach ($data as $field => $values) {
+            $data[$field] = array_unique($values);
+        }
 
         $return = [];
 
