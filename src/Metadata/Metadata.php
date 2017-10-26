@@ -35,7 +35,7 @@ class Metadata
         ];
 
         if ($resource_name and array_key_exists($resource_name, $resources)) {
-            $class = $resources[$resource_name];
+            $class = new $resources[$resource_name];
             $return[$resource_name] = $class->getMetadata();
         } else if ($resource_name === false) {
             foreach ($resources as $name => $resource) {
