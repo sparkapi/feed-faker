@@ -128,7 +128,7 @@ class PropertyFakerTest extends PHPUnit_Framework_TestCase
                 case 'RNT':
                     break;
                 case 'LSE':
-                    $this->assertTrue(($property_object->getLeaseAmount() > 350 and $property_object->getLeaseAmount() < 3000));
+                    $this->assertTrue(($property_object->getLeaseAmount() >= 350 and $property_object->getLeaseAmount() <= 3000));
                     $this->assertTrue(in_array($property_object->getLeaseAmountFrequency(), $lease_amount_freqs));
                     $this->assertTrue($property_object->getLeaseConsideredYN() == 'Y');
                     $this->assertTrue(in_array($property_object->getLeaseTerm(), $lease_terms));

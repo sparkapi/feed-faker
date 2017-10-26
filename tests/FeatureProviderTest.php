@@ -81,50 +81,49 @@ class FeatureProviderTest extends PHPUnit_Framework_TestCase
     public function testMultipleResults()
     {
         $OperatingExpenseIncludes = [
-            'Accounting',
-            'Advertising',
-            'Association',
-            'Cable TV',
-            'Capital Improvements',
-            'Depreciation',
-            'Equipment Rental',
-            'Fuel',
-            'Furniture Replacement',
-            'Gardener',
-            'Insurance',
-            'Legal',
-            'Licenses',
-            'Maintenance',
-            'Maintenance Grounds',
-            'Maintenance Structure',
-            'Manager',
-            'Mortgage\/Loans',
-            'New Tax',
-            'Other',
-            'Parking',
-            'Pest Control',
-            'Pool\/Spa',
-            'Professional Management',
-            'Security',
-            'Snow Removal',
-            'Staff',
-            'Supplies',
-            'Trash',
-            'Utilities',
-            'Vacancy Allowance',
-            'Water\/Sewer',
-            'Workmans Compensation'
+            "Accounting",
+            "Advertising",
+            "Association",
+            "Cable TV",
+            "Capital Improvements",
+            "Depreciation",
+            "Equipment Rental",
+            "Fuel",
+            "Furniture Replacement",
+            "Gardener",
+            "Insurance",
+            "Legal",
+            "Licenses",
+            "Maintenance",
+            "Maintenance Grounds",
+            "Maintenance Structure",
+            "Manager",
+            "Mortgage/Loans",
+            "New Tax",
+            "Other",
+            "Parking",
+            "Pest Control",
+            "Pool/Spa",
+            "Professional Management",
+            "Security",
+            "Snow Removal",
+            "Staff",
+            "Supplies",
+            "Trash",
+            "Utilities",
+            "Vacancy Allowance",
+            "Water/Sewer",
+            "Workmans Compensation"
         ];
 
         $oei_value = $this->faker->getFeatureList('OperatingExpenseIncludes', 5);
 
         // make sure there's no duplicates
         $this->assertTrue(count($oei_value) == count(array_unique($oei_value)));
-
         $this->assertCount(5, $oei_value);
 
         foreach ($oei_value as $oei) {
-            $this->assertTrue(in_array($oei, $OperatingExpenseIncludes));
+            $this->assertContains($oei, $OperatingExpenseIncludes);
         }
     }
 
