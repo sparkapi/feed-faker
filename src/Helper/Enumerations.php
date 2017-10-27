@@ -13,7 +13,7 @@ class Enumerations
             return $enums[$field_name];
         }
 
-        return null;
+        return [];
     }
 
     public static $enums =
