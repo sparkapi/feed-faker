@@ -15,6 +15,7 @@ class BaseModel
      * @var
      */
     public $id_key;
+    public $foreign_key = null;
 
     /**
      * @return string
@@ -38,6 +39,14 @@ class BaseModel
     public function setIdKey($id_key)
     {
         $this->id_key = $id_key;
+    }
+
+    /**
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return $this->foreign_key;
     }
 
     /**

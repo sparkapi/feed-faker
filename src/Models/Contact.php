@@ -187,6 +187,11 @@ class Contact extends BaseModel
         return $this->getContactKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getOwnerMemberKey();
+    }
+
     /**
      * @return string
      */

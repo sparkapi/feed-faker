@@ -30,6 +30,23 @@ class Fields
         return null;
     }
 
+    public static function getAllFields()
+    {
+        $fields = json_decode(self::$fields, true);
+        $return = [];
+
+        foreach ($fields as $field) {
+            $return[$field['Standard Name']] = [
+                'StandardName' => $field['Standard Name'],
+                'DataType' => $field['Simple Data Type'],
+                'Classes' => self::parseClasses($field),
+                'Enumerations' => Enumerations::getEnums($field['Standard Name']),
+            ];
+        }
+
+        return $return;
+    }
+
     private static function parseClasses($field)
     {
         $return = [];

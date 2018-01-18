@@ -59,6 +59,11 @@ class OpenHouse extends BaseModel
         return $this->getOpenHouseKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getListingKey();
+    }
+
     /**
      * @return string
      */

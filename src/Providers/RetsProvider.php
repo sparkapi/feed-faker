@@ -252,6 +252,34 @@ class RetsProvider extends Base
         return $types[$rand_key];
     }
 
+    public function specialListingConditions()
+    {
+        $types = [
+            'REO',
+            'Foreclosure',
+            'Bank Owned',
+        ];
+
+        $rand_key = array_rand($types);
+
+        return $types[$rand_key];
+    }
+
+    public function buyerFinancing()
+    {
+        $types = [
+            'Traditional',
+            'FHA',
+            'VA',
+            'Lottery Ticket',
+            'Cash',
+        ];
+
+        $rand_key = array_rand($types);
+
+        return $types[$rand_key];
+    }
+
     public function mediaCategory($resource_name)
     {
         switch ($resource_name) {

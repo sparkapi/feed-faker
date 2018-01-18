@@ -67,6 +67,11 @@ class Media extends BaseModel
         return $this->getMediaKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getResourceRecordKey();
+    }
+
     /**
      * @return string
      */

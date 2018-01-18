@@ -2,6 +2,7 @@
 
 namespace FeedFaker\Classes;
 
+use Carbon\Carbon;
 use FeedFaker\Providers\FeatureProvider;
 use FeedFaker\Helper\LotSize;
 use FeedFaker\Models\Member;
@@ -58,7 +59,9 @@ class PropertyFaker extends BaseFaker
         $mls_status = $this->faker->mlsStatus($property_type);
         $standard_status = $this->faker->standardStatus($mls_status);
         if ($standard_status == 'Active') {
-            // none of the status-dependent stuff needs changed
+            $property->setSpecialListingConditions($this->faker->getFeatureList('SpecialListingConditions', 1));
+            // set as a logic_driven_select so it won't be set again below
+            $logic_driven_selects[] = 'SpecialListingConditions';
         } else if ($standard_status == 'Pending' or $mls_status == 'UCB (Under Contract-Backups)' or $standard_status == 'Closed') {
             $purchase_contract_date = $this->faker->dateTimeThisMonth()->format('Y-m-d');
             $pending_timestamp = $this->faker->dateTimeThisMonth()->format('Y-m-d');
@@ -66,6 +69,7 @@ class PropertyFaker extends BaseFaker
             if ($standard_status == 'Closed') {
                 $close_date = $this->faker->dateTimeThisMonth()->format('Y-m-d');
                 $close_price = $this->faker->getPrice($price);
+                $property->setBuyerFinancing($this->faker->buyerFinancing());
             }
         } else if ($standard_status == 'Withdrawn') {
             $withdrawn_date = $this->faker->dateTimeThisMonth()->format('Y-m-d');
@@ -146,6 +150,7 @@ class PropertyFaker extends BaseFaker
         $property->setHomeWarrantyYN($this->faker->YorN);
         $property->setCopyrightNotice("Listing information is the property of the listing agent and MLS. Information is deemed reliable but is not guaranteed.");
         $property->setDisclaimer("Disclaimer for use of these listings in any work or exhibit.");
+        $property->setDisclosures("Dewey, Cheatem, and Howe LLP will provide legal advice to owner.");
         $property->setStandardStatus($standard_status);
         $property->setMlsStatus($mls_status);
         $property->setListingContractDate($this->faker->dateTimeThisYear()->format('Y-m-d'));
@@ -153,12 +158,14 @@ class PropertyFaker extends BaseFaker
         $property->setExpirationDate($this->faker->dateTimeThisYear()->format('Y-m-d'));
         $property->setOnMarketDate($this->faker->dateTimeThisYear()->format('Y-m-d'));
         $property->setModificationTimestamp($this->faker->dateTimeThisYear()->format('Y-m-d'));
-        $property->setDaysOnMarket($this->faker->numberBetween(0,240));
         $property->setOriginalListPrice($this->faker->getPrice($price));
         $property->setListPrice($price);
         $property->setPreviousListPrice($prev_price);
         $property->setPriceChangeTimestamp($price_change_timestamp);
+        $property->setInternetEntireListingDisplayYN($this->faker->YorN);
         $property->setInternetAddressDisplayYN($this->faker->YorN);
+        $property->setInternetConsumerCommentYN($this->faker->YorN);
+        $property->setInternetAutomatedValuationDisplayYN($this->faker->YorN);
         $property->setPhotosCount($this->faker->numberBetween(5,30));
         $property->setVirtualTourURLBranded($this->faker->url);
         $property->setVirtualTourURLUnbranded($this->faker->url);
@@ -168,6 +175,7 @@ class PropertyFaker extends BaseFaker
         $property->setShowingInstructions($this->faker->private_description(2));
         $property->setShowingContactName($this->faker->name);
         $property->setShowingContactPhone($this->faker->phoneNumber);
+        $property->setInclusions($this->faker->words(10));
         $property->setExclusions($this->faker->words(10));
         $property->setStreetNumber($this->faker->numberBetween(10, 5000));
         $property->setStreetNumberNumeric($property->getStreetNumber());
@@ -211,6 +219,11 @@ class PropertyFaker extends BaseFaker
         $property->setClosePrice($close_price);
         $property->setRoomType('Bedroom');
         $property->setUnitTypeType('Studio');
+
+        // calculate DOM
+        $dt = Carbon::create($property->getOriginalEntryTimestamp());
+        $now = Carbon::create();
+        $property->setDaysOnMarket($now->diffInDays($dt));
 
         // occupant / owner
         $property->setOccupantName($this->faker->optional()->name);
