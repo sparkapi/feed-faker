@@ -25,4 +25,20 @@ class MemberFakerTest extends PHPUnit_Framework_TestCase
         $this->assertSame($member->getMemberStateLicenseState(), $member->getMemberStateOrProvince());
         $this->assertSame($member->getMemberFirstName() . ' ' . $member->getMemberMiddleName() . ' ' . $member->getMemberLastName(), $member->getMemberFullName());
     }
+
+    public function testGetObjects()
+    {
+        $containerBuilder = new ContainerBuilder;
+        $containerBuilder->addDefinitions(__DIR__ . '/settings_fixture.php');
+        $container = $containerBuilder->build();
+
+        $office = new OfficeFaker($container);
+        $office = $office->generate();
+
+        $member = new MemberFaker($container);
+        $member = $member->generate($office);
+
+        $this->assertFalse($office->getObjects()); // these may be implemented later
+        $this->assertFalse($member->getObjects()); // these may be implemented later
+    }
 }
