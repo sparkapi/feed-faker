@@ -86,4 +86,9 @@ class BaseModel
 
         return $return;
     }
+
+    public function getObjects()
+    {
+        return false;
+    }
 }
