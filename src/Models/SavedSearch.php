@@ -49,6 +49,11 @@ class SavedSearch extends BaseModel
         return $this->getSavedSearchKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getMemberKey();
+    }
+
     /**
      * @return string
      */

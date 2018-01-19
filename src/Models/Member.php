@@ -150,6 +150,11 @@ class Member extends BaseModel
         return $this->getMemberKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getOfficeKey();
+    }
+
     /**
      * @return string
      */

@@ -48,6 +48,11 @@ class History extends BaseModel
         return $this->getHistoryTransactionalKey();
     }
 
+    public function getForeignKey()
+    {
+        return $this->getResourceRecordKey();
+    }
+
     /**
      * @return string
      */
