@@ -13,4 +13,5 @@ return [
     'exterior_collection' => collection_id, // unsplash id or filesystem path to interior image directory if using local provider
     'portrait_collection' => collection_id, // unsplash id or filesystem path to interior image directory if using local provider
     'photo_provider' => \FeedFaker\Helper\UnsplashPhotoProvider::class,
+    'use_getobject', // use the RETS getObject style to provide photos-- default is to supply them as media resources
 ];

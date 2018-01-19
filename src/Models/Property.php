@@ -585,6 +585,7 @@ namespace FeedFaker\Models;
  * @property string TaxMapNumber
  * @property string TaxParcelLetter
  * @property string TaxStatusCurrent
+ * @property array Objects
  */
 
 class Property extends BaseModel
@@ -1167,6 +1168,7 @@ class Property extends BaseModel
     public $TaxMapNumber;
     public $TaxParcelLetter;
     public $TaxStatusCurrent;
+    public $Objects = [];
 
     public function getIdKey()
     {
@@ -10403,5 +10405,37 @@ class Property extends BaseModel
     public function setTaxParcelLetter($TaxParcelLetter)
     {
         $this->TaxParcelLetter = $TaxParcelLetter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaxStatusCurrent()
+    {
+        return $this->TaxStatusCurrent;
+    }
+
+    /**
+     * @param string $TaxStatusCurrent
+     */
+    public function setTaxStatusCurrent($TaxStatusCurrent)
+    {
+        $this->TaxStatusCurrent = $TaxStatusCurrent;
+    }
+
+    /**
+     * @return RetsObject[]
+     */
+    public function getObjects()
+    {
+        return $this->Objects;
+    }
+
+    /**
+     * @param RetsObject $object
+     */
+    public function setObject(RetsObject $object)
+    {
+        $this->Objects[] = $object;
     }
 }

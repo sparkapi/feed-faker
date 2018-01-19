@@ -199,4 +199,17 @@ class PropertyFakerTest extends PHPUnit_Framework_TestCase
             $this->assertSame(1, count(explode(',', $value)));
         }
     }
+
+    public function testGetObject()
+    {
+        $container = $this->container;
+        $container->set('use_getobject', true);
+
+        /** @var \FeedFaker\Models\Property $property_object */
+        $property = new PropertyFaker($container);
+        $property_object = $property->generate($this->member1, $this->member2);
+
+        $this->assertSame($property_object->getPhotosCount(), count($property_object->getObjects()));
+        $this->assertInstanceOf(\FeedFaker\Models\RetsObject::class, $property_object->getObjects()[0]);
+    }
 }

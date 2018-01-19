@@ -21,6 +21,7 @@ class Settings {
         'history_count' => 1000,
         'media_count' => 5000,
         'photo_provider' => NullPhotoProvider::class,
+        'use_getobject' => false,
     ];
 
     /**
