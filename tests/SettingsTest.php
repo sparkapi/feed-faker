@@ -15,11 +15,12 @@ class SettingsTest extends PHPUnit_Framework_TestCase
         'history_count' => 10010,
         'media_count' => 50010,
 
-        'photo_provider' => UnsplashPhotoProvider::class,
+        'photo_provider' => NullPhotoProvider::class,
         'unsplash_app_id' => 'my-id',
         'interior_collection' => 1010,
         'exterior_collection' => 101010,
         'portrait_collection' => 10101010,
+        'use_getobject' => false,
     ];
 
     /**
@@ -29,6 +30,7 @@ class SettingsTest extends PHPUnit_Framework_TestCase
     public function testValidateThrowsExceptionForMissingFields()
     {
         $settings = static::$valid_settings;
+        $settings['photo_provider'] = UnsplashPhotoProvider::class;
         unset($settings['unsplash_app_id']);
 
         Settings::validate($settings);
@@ -41,6 +43,7 @@ class SettingsTest extends PHPUnit_Framework_TestCase
     public function testValidateThrowsExceptionForNonStringEntries()
     {
         $settings = static::$valid_settings;
+        $settings['photo_provider'] = UnsplashPhotoProvider::class;
         $settings['unsplash_app_id'] = true;
 
         Settings::validate($settings);
@@ -103,6 +106,7 @@ class SettingsTest extends PHPUnit_Framework_TestCase
             'interior_collection' => 1010,
             'exterior_collection' => 101010,
             'portrait_collection' => 10101010,
+            'use_getobject' => false,
         ];
 
         $actual = Settings::load($settings);

@@ -18,6 +18,8 @@ abstract class BaseFaker
     /**
      * BaseFaker constructor.
      * @param Container $container
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     public function __construct(Container $container)
     {

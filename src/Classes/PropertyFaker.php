@@ -3,6 +3,8 @@
 namespace FeedFaker\Classes;
 
 use Carbon\Carbon;
+use FeedFaker\Models\MediaImage;
+use FeedFaker\Models\RetsObject;
 use FeedFaker\Providers\FeatureProvider;
 use FeedFaker\Helper\LotSize;
 use FeedFaker\Models\Member;
@@ -11,14 +13,23 @@ use DI\Container;
 
 class PropertyFaker extends BaseFaker
 {
+    public $getObject = false;
+
     public function __construct(Container $container)
     {
         parent::__construct($container);
         $this->faker->addProvider(new FeatureProvider($this->faker));
+
+        if ($container->get('use_getobject')) {
+            $photo_provider = $container->get('photo_provider');
+            $this->faker->addProvider(new $photo_provider($this->faker, $container));
+            $this->getObject = true;
+        }
     }
 
     public function generate(Member $member, Member $member2, array $overrides = [])
     {
+        /** @var Property $property */
         $property = new Property();
 
         // logic-driven selections-- add to this list if the field is only relevant in certain circumstances
@@ -418,6 +429,30 @@ class PropertyFaker extends BaseFaker
 
         // handle overrides
         $property = $this->handleOverrides($property, $overrides);
+
+        // deal with photo objects, if we want them
+        if ($this->getObject) {
+            $count = $property->getPhotosCount();
+
+            for ( $i = 1; $i <= $count; $i++ ) {
+                $preferred = ($i == 1) ? true : false;
+
+                /** @var MediaImage $image */
+                $image = $this->faker->getPhoto('Property');
+
+                $object = new RetsObject();
+                $object->setContentId($property->getListingKey());
+                $object->setObjectId($i);
+                $object->setContentType('Photo');
+                $object->setMimeVersion($image->getMimeType());
+                $object->setLocation($image->getUrl());
+                $object->setPreferred($preferred);
+                $object->setContentDescription($this->faker->sentence);
+                $object->setContentSubDescription($this->faker->word);
+
+                $property->setObject($object);
+            }
+        }
 
         return $property;
     }
