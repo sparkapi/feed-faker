@@ -156,4 +156,20 @@ class RetsObject
     {
         $this->Preferred = $Preferred;
     }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        $return = (array) $this;
+
+        foreach ($return as $key => $value) {
+            if (is_array($value)) {
+                $return[$key] = implode(',', $value);
+            }
+        }
+
+        return $return;
+    }
 }
