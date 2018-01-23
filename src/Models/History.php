@@ -27,6 +27,8 @@ namespace FeedFaker\Models;
 
 class History extends BaseModel
 {
+    public $resource_name = 'History';
+
     public $HistoryTransactionalKey;
     public $OriginatingSystemHistoryKey;
     public $OriginatingSystemName;

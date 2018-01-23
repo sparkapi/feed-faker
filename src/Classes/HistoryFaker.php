@@ -13,13 +13,15 @@ class HistoryFaker extends BaseFaker
     {
         $history = new History();
 
+        $modification = $this->faker->dateTimeThisYear()->format('Y-m-d H:i:s');
+
         $history->setHistoryTransactionalKey($this->faker->tech_id);
         $history->setOriginatingSystemHistoryKey($this->faker->tech_id);
         $history->setOriginatingSystemName($resource->getOriginatingSystemName());
         $history->setChangedByMemberID($resource->getAgentMlsId());
         $history->setChangedByMemberKey($resource->getAgentMlsKey());
         $history->setChangeType($this->faker->changeType);
-        $history->setModificationTimestamp($this->faker->dateTime);
+        $history->setModificationTimestamp($modification);
         $history->setFieldKey('FakeFieldKey');
         $history->setFieldName('FakeFieldName');
         $history->setPreviousValue($this->faker->word);

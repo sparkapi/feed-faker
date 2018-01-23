@@ -32,6 +32,8 @@ namespace FeedFaker\Models;
 
 class OpenHouse extends BaseModel
 {
+    public $resource_name = 'OpenHouse';
+
     public $OpenHouseKey;
     public $OpenHouseId;
     public $OriginatingSystemKey;
