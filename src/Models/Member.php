@@ -73,6 +73,8 @@ namespace FeedFaker\Models;
 
 class Member extends BaseModel
 {
+    public $resource_name = 'Member';
+
     public $Office;
     public $MemberKey;
     public $OriginatingSystemMemberKey;

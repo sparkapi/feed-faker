@@ -96,6 +96,8 @@ namespace FeedFaker\Models;
 
 class Contact extends BaseModel
 {
+    public $resource_name = 'Contact';
+
     public $ContactKey;
     public $ContactLoginId;
     public $ContactPassword;

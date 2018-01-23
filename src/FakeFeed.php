@@ -143,7 +143,7 @@ class FakeFeed
         /** @var BaseModel $resource */
         $resource = $this->getRandom('resource', $no_prop);
         $generic = new GenericResource();
-        $generic->setResourceName($resource->getModelType());
+        $generic->setResourceName($resource->getResourceName());
 
         $type = $resource->getModelType();
 

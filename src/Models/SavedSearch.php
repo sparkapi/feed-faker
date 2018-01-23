@@ -27,6 +27,8 @@ namespace FeedFaker\Models;
 
 class SavedSearch extends BaseModel
 {
+    public $resource_name = 'SavedSearch';
+
     public $SavedSearchKey;
     public $SavedSearchName;
     public $SavedSearchDescription;

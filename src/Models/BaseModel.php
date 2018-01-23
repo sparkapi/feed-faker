@@ -11,6 +11,8 @@ use FeedFaker\Helper\Fields;
  */
 class BaseModel
 {
+    public $resource_name;
+
     /**
      * @var
      */
@@ -23,6 +25,14 @@ class BaseModel
     public function getModelType()
     {
         return get_class($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function getResourceName()
+    {
+        return $this->resource_name;
     }
 
     /**

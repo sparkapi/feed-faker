@@ -36,6 +36,8 @@ namespace FeedFaker\Models;
 
 class Media extends BaseModel
 {
+    public $resource_name = 'Media';
+
     public $MediaKey;
     public $ResourceRecordKey;
     public $ResourceRecordID;

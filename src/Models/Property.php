@@ -590,6 +590,8 @@ namespace FeedFaker\Models;
 
 class Property extends BaseModel
 {
+    public $resource_name = 'Property';
+
     public $ListingKey;
     public $ListingId;
     public $ListAOR;

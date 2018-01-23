@@ -50,6 +50,8 @@ namespace FeedFaker\Models;
 
 class Office extends BaseModel
 {
+    public $resource_name = 'Office';
+
     public $OfficeKey;
     public $OriginatingSystemOfficeKey;
     public $OriginatingSystemName;
