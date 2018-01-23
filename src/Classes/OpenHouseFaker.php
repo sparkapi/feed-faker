@@ -2,6 +2,7 @@
 
 namespace FeedFaker\Classes;
 
+use Carbon\Carbon;
 use Faker\Factory;
 use FeedFaker\Helper\RetsProvider;
 use FeedFaker\Models\Listing;
@@ -14,17 +15,19 @@ class OpenHouseFaker extends BaseFaker
     {
         $openhouse = new OpenHouse();
 
+        $modification = Carbon::parse($this->faker->dateTimeThisYear()->format('Y-m-d H:i:s'));
+
         $openhouse->setOpenHouseKey($this->faker->tech_id);
         $openhouse->setOpenHouseId($this->faker->tech_id);
         $openhouse->setOriginatingSystemName($property->getOriginatingSystemName());
         $openhouse->setOriginatingSystemKey($property->getOriginatingSystemKey());
         $openhouse->setListingKey($property->getListingKey());
         $openhouse->setListingId($property->getListingId());
-        $openhouse->setOriginalEntryTimestamp($this->faker->dateTime);
-        $openhouse->setModificationTimestamp($this->faker->dateTime);
-        $openhouse->setOpenHouseDate($this->faker->date);
-        $openhouse->setOpenHouseStartTime($this->faker->time());
-        $openhouse->setOpenHouseEndTime($this->faker->time());
+        $openhouse->setOriginalEntryTimestamp($modification->subWeek()->toDateTimeString());
+        $openhouse->setModificationTimestamp($modification->subWeek()->toDateTimeString());
+        $openhouse->setOpenHouseDate($modification->toDateString());
+        $openhouse->setOpenHouseStartTime($modification->toTimeString());
+        $openhouse->setOpenHouseEndTime($modification->addHour()->toTimeString());
         $openhouse->setShowingAgentMlsID($property->getListAgentMlsId());
         $openhouse->setShowingAgentFirstName($property->getListAgentFirstName());
         $openhouse->setShowingAgentLastName($property->getListAgentLastName());
