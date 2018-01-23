@@ -57,7 +57,14 @@ class BaseModel
         $return = (array) $this;
 
         foreach ($return as $key => $value) {
-            if (is_array($value)) {
+            if ($key == 'Objects') {
+                $objects = [];
+                foreach ($value as $k => $v) {
+                   $make_array = (array) $v;
+                   $objects[] = $make_array;
+                }
+                $return['Objects'] = $objects;
+            } else if (is_array($value)) {
                 $return[$key] = implode(',', $value);
             }
         }

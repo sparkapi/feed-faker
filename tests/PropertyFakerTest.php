@@ -212,4 +212,19 @@ class PropertyFakerTest extends PHPUnit_Framework_TestCase
         $this->assertSame($property_object->getPhotosCount(), count($property_object->getObjects()));
         $this->assertInstanceOf(\FeedFaker\Models\RetsObject::class, $property_object->getObjects()[0]);
     }
+
+    public function testToArrayWithObject()
+    {
+        $container = $this->container;
+        $container->set('use_getobject', true);
+
+        /** @var \FeedFaker\Models\Property $property_object */
+        $property = new PropertyFaker($container);
+        $property_object = $property->generate($this->member1, $this->member2);
+
+        $property_array = $property_object->toArray();
+
+        $this->assertFalse(is_object($property_array['Objects'][0]));
+        $this->assertTrue(is_array($property_array['Objects'][0]));
+    }
 }
