@@ -46,6 +46,8 @@ class MediaFaker extends BaseFaker
             $image = $this->faker->getPhoto($image_type);
         }
 
+        $modification = $this->faker->dateTimeThisYear()->format('Y-m-d H:i:s');
+
         $media->setMediaKey($this->faker->tech_id);
         $media->setResourceRecordKey($resource->getResourceRecordKey());
         $media->setResourceRecordId($resource->getResourceRecordId());
@@ -58,8 +60,8 @@ class MediaFaker extends BaseFaker
         $media->setMimeType($image->getMimeType());
         $media->setShortDescription($this->faker->sentence);
         $media->setLongDescription($this->faker->paragraph);
-        $media->setModificationTimestamp($this->faker->dateTime);
-        $media->setMediaModificationTimestamp($this->faker->dateTime);
+        $media->setModificationTimestamp($modification);
+        $media->setMediaModificationTimestamp($modification);
         $media->setMediaURL($image->getUrl());
         $media->setMediaHTML($this->faker->imageHTML);
         $media->setOrder($order);
